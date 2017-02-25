@@ -2,18 +2,31 @@ import * as http from 'http';
 import * as Compose from 'docker-compose-js';
 import * as Express from 'express';
 import * as Config from './config';
+import * as bodyParser from 'body-parser';
 
 const app = Express();
+app.use(bodyParser.json());
 
 app.post('/postreceive', async (req, res) => {
-  let dockerPost: DockerPost = JSON.parse(req.body);
-  res.send("OK");
-  let config = await Config.readConfig();
-  let dockerComposeFile = config.hooks[dockerPost.repository.repo_url];
-  let compose = Compose(dockerComposeFile);
+  try {
+    let dockerPost: DockerPost = req.body;
+    res.send("OK");
+    let repoName = dockerPost.repository.repo_name;
+    console.log(`got message from docker for ${repoName}`)
+    let config = await Config.readConfig();
+    let dockerComposeFile = config.hooks[repoName];
 
-  await compose.pull();
-  compose.up();
+    if (!dockerComposeFile) {
+      console.error(`Could not find docker-compose file for repository ${repoName}!`)
+      return;
+    }
+    let compose = Compose(dockerComposeFile);
+
+    await compose.pull();
+    compose.up();
+  } catch (err) {
+    console.error(err);
+  }
 })
 
 async function main() {
