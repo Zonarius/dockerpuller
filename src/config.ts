@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as Path from 'path';
 
 export interface Config {
   port: string;
@@ -9,7 +10,7 @@ export interface Config {
 
 export function readConfig(): Promise<Config> {
   return new Promise((res, rej) => {
-    fs.readFile("config.json", "utf-8", (err, data) => {
+    fs.readFile(Path.resolve(__dirname, "../config.json"), "utf-8", (err, data) => {
       if (err) {
         rej(err);
       } else {
