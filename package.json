@@ -18,11 +18,8 @@
   },
   "homepage": "https://github.com/Zonarius/dockerpuller#readme",
   "dependencies": {
-    "const": "^1.0.0",
     "docker-compose-js": "terascope/docker-compose-js",
-    "dockerode": "^2.3.1",
-    "express": "^4.14.1",
-    "github-webhook-handler": "^0.6.0"
+    "express": "^4.14.1"
   },
   "devDependencies": {
     "@types/dockerode": "^2.3.1",
