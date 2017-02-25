@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 
-
 export interface Config {
+  port: string;
   hooks: {
     [repo_url: string]: string;
   }

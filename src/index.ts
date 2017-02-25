@@ -15,3 +15,13 @@ app.post('/postreceive', async (req, res) => {
   await compose.pull();
   compose.up();
 })
+
+async function main() {
+  let config = await Config.readConfig();
+  let port = config.port || 8080
+  app.listen(port, () => {
+    console.log(`Listening on ${port}`)
+  });
+}
+
+main().catch(console.error);
