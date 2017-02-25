@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "docker_repo_url": "/location/to/dockercomposefile.yaml",
+    "docker_repo_url2": "/location/to/dockercomposefile2.yaml"
+  }
+}

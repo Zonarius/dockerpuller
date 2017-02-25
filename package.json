@@ -1,0 +1,32 @@
+{
+  "name": "dockerpuller",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zonarius/dockerpuller.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zonarius/dockerpuller/issues"
+  },
+  "homepage": "https://github.com/Zonarius/dockerpuller#readme",
+  "dependencies": {
+    "const": "^1.0.0",
+    "docker-compose-js": "terascope/docker-compose-js",
+    "dockerode": "^2.3.1",
+    "express": "^4.14.1",
+    "github-webhook-handler": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/dockerode": "^2.3.1",
+    "@types/express": "^4.0.35",
+    "@types/node": "^7.0.5"
+  }
+}
